@@ -40,7 +40,7 @@ docker run --rm hello-world
 ## Paso 2 — Obtener el proyecto
 
 ```bash
-git clone https://github.com/IoTeacher/OpenVTSmaps.git gps-route-viewer
+git clone https://github.com/tectijuana/OpenVTSmapsTutorial.git gps-route-viewer
 cd gps-route-viewer
 ```
 

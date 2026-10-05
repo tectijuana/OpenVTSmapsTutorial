@@ -13,7 +13,7 @@
 ## Hecho
 - [x] Crear vault de Obsidian y CLAUDE.md
 - [x] Inicializar git
-- [x] Publicar en https://github.com/IoTeacher/OpenVTSmaps
+- [x] Publicar en https://github.com/tectijuana/OpenVTSmapsTutorial
 - [x] Arquitectura (`docs/ARQUITECTURA.md`)
 - [x] App: importación CSV/GPX/KML/GeoJSON, mapa, reproducción, panel, validación
 - [x] Pruebas unitarias (`npm test`) y de navegador (`tests/browser.html`)
