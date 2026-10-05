@@ -1,5 +1,21 @@
 # GPS Route Viewer
 
+[![Licencia: MIT](https://img.shields.io/github/license/IoTeacher/OpenVTSmaps?label=licencia)](LICENSE)
+[![Último commit](https://img.shields.io/github/last-commit/IoTeacher/OpenVTSmaps?label=último%20commit)](https://github.com/IoTeacher/OpenVTSmaps/commits/main)
+[![JavaScript ES Modules](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=black)](src/main.js)
+[![Leaflet 1.9.4](https://img.shields.io/badge/Leaflet-1.9.4-199900?logo=leaflet&logoColor=white)](https://leafletjs.com)
+[![OpenStreetMap](https://img.shields.io/badge/mapa-OpenStreetMap-7EBC6F?logo=openstreetmap&logoColor=white)](https://www.openstreetmap.org/copyright)
+[![Docker](https://img.shields.io/badge/Docker-nginx%3Astable--alpine-2496ED?logo=docker&logoColor=white)](Dockerfile)
+[![Sin backend](https://img.shields.io/badge/datos%20GPS-procesados%20localmente-success)](docs/ARQUITECTURA.md)
+
+[![WGS 84](https://img.shields.io/badge/WGS%2084-EPSG%3A4326-informational)](https://epsg.io/4326)
+[![GPX 1.1](https://img.shields.io/badge/GPX-1.1-informational)](https://www.topografix.com/GPX/1/1/)
+[![KML 2.2](https://img.shields.io/badge/OGC%20KML-2.2-informational)](https://www.ogc.org/standard/kml/)
+[![GeoJSON RFC 7946](https://img.shields.io/badge/GeoJSON-RFC%207946-informational)](https://datatracker.ietf.org/doc/html/rfc7946)
+[![CSV RFC 4180](https://img.shields.io/badge/CSV-RFC%204180-informational)](https://datatracker.ietf.org/doc/html/rfc4180)
+[![ISO 8601](https://img.shields.io/badge/fechas-ISO%208601-informational)](https://www.iso.org/iso-8601-date-and-time-format.html)
+[![TecNM Tijuana](https://img.shields.io/badge/TecNM-Instituto%20Tecnol%C3%B3gico%20de%20Tijuana-1B396A)](https://www.tijuana.tecnm.mx)
+
 Visualización y reproducción de trayectorias GPS en el navegador. Es un proyecto didáctico del TecNM · Instituto Tecnológico de Tijuana para prácticas de GPS, IoT, telemetría, programación, sistemas distribuidos y análisis de datos de vehículos.
 
 - Importa **CSV, GPX, KML y GeoJSON** (arrastrar y soltar o selector de archivos).
