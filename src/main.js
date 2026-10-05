@@ -8,6 +8,7 @@ import { setupDropZone } from './components/dropZone.js';
 import { renderStats } from './components/statsPanel.js';
 import { createPlaybackPanel } from './components/playbackPanel.js';
 import { showMessages } from './components/notifications.js';
+import { trackToGeoJson, exportFileName } from './utils/geojsonExport.js';
 
 const MAX_FILE_BYTES = 50 * 1024 * 1024;
 const DEMO_URL = 'src/assets/demo/tectijuana_demo.csv';
@@ -146,6 +147,7 @@ function applyLayerToggles() {
   state.map.setLayerVisible('points', $('togglePoints').checked);
   state.map.setLayerVisible('route', $('toggleRoute').checked);
   state.map.setLayerVisible('labels', $('toggleLabels').checked);
+  state.map.setColorBySpeed($('toggleSpeedColor').checked);
 }
 
 function toggleFullscreen() {
@@ -168,11 +170,24 @@ $('fullscreenBtn').addEventListener('click', toggleFullscreen);
   document.addEventListener(ev, () => setTimeout(() => state.map?.invalidateSize(), 100))
 );
 
-['togglePoints', 'toggleRoute', 'toggleLabels'].forEach((id) => $(id).addEventListener('change', applyLayerToggles));
+['togglePoints', 'toggleRoute', 'toggleLabels', 'toggleSpeedColor'].forEach((id) => $(id).addEventListener('change', applyLayerToggles));
 
 ui.playBtn.addEventListener('click', () => state.animator?.play());
 ui.pauseBtn.addEventListener('click', () => state.animator?.pause());
 $('resetBtn').addEventListener('click', () => state.animator?.reset());
+function exportGeoJson() {
+  if (!state.track) return;
+  // El archivo se genera en el navegador; no se envía a ningún servidor.
+  const json = JSON.stringify(trackToGeoJson(state.track), null, 2);
+  const url = URL.createObjectURL(new Blob([json], { type: 'application/geo+json' }));
+  const a = Object.assign(document.createElement('a'), { href: url, download: exportFileName(state.track) });
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+$('exportBtn').addEventListener('click', exportGeoJson);
 $('resetBtn2').addEventListener('click', () => state.animator?.reset());
 ui.rateSelect.addEventListener('change', () => state.animator?.setRate(Number(ui.rateSelect.value)));
 

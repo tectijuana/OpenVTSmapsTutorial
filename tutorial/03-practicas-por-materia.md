@@ -60,6 +60,8 @@ Elige una opción:
 
 Ejecuta `npm test` (o el comando Docker de la Práctica 2) antes de entregar.
 
+> **Docentes:** la rama [`soluciones`](https://github.com/tectijuana/OpenVTSmapsTutorial/tree/soluciones) tiene una solución de referencia de D.1, D.2 y D.3 con sus pruebas (`tests/nmea.test.js`, `tests/solutions.test.js`).
+
 **Entregable:** el código y la captura de las pruebas pasando.
 
 ## E. Sistemas distribuidos — Cliente, servidor y privacidad

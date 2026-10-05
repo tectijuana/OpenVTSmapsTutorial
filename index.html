@@ -32,11 +32,11 @@
       <div id="dropZone" class="drop-zone" tabindex="0" aria-label="Zona para arrastrar archivos GPS">
         <button id="selectBtn" type="button" class="btn btn-primary">Seleccionar archivo</button>
         <span class="drop-or">o</span>
-        <p class="drop-text">Arrastra aquí <strong>CSV, GPX, KML o GeoJSON</strong></p>
+        <p class="drop-text">Arrastra aquí <strong>CSV, GPX, KML, GeoJSON o NMEA</strong></p>
         <button id="demoBtn" type="button" class="btn btn-link">
           Cargar ruta demo: TecNM Tijuana · Tomás Aquino → Otay
         </button>
-        <input id="fileInput" type="file" accept=".csv,.txt,.gpx,.kml,.geojson,.json" hidden>
+        <input id="fileInput" type="file" accept=".csv,.txt,.gpx,.kml,.geojson,.json,.nmea" hidden>
       </div>
       <p class="privacy-note">🔒 Los datos GPS se procesan localmente en su navegador.</p>
     </section>
@@ -90,6 +90,7 @@
             <select id="vehicleSelect"></select>
           </label>
           <div id="stats" class="stats"></div>
+          <button type="button" id="exportBtn" class="btn btn-block" title="Descarga la trayectoria ya validada (sin errores ni duplicados)">⬇ Exportar GeoJSON limpio</button>
         </section>
 
         <section class="card">
@@ -102,6 +103,7 @@
           <label class="toggle"><input type="checkbox" id="togglePoints" checked> Mostrar puntos</label>
           <label class="toggle"><input type="checkbox" id="toggleRoute" checked> Mostrar trayectoria</label>
           <label class="toggle"><input type="checkbox" id="toggleLabels"> Mostrar etiquetas</label>
+          <label class="toggle"><input type="checkbox" id="toggleSpeedColor"> Colorear por velocidad</label>
           <label class="toggle"><input type="checkbox" id="toggleFollow" checked> Seguir vehículo</label>
           <button type="button" id="resetBtn2" class="btn btn-block">⏹ Reiniciar reproducción</button>
         </section>
