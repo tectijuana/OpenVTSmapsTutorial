@@ -142,7 +142,7 @@ Si el docente publicó el proyecto en un repositorio:
 
 ```bash
 sudo apt install -y git
-git clone <URL-DEL-REPOSITORIO> ~/gps-route-viewer
+git clone https://github.com/IoTeacher/OpenVTSmaps.git ~/gps-route-viewer
 sudo cp -r ~/gps-route-viewer/index.html ~/gps-route-viewer/src /var/www/html/
 ```
 
@@ -161,7 +161,7 @@ Recarga la página en el navegador y observa una línea por cada archivo solicit
 ```bash
 sudo systemctl disable --now nginx                 # libera el puerto 80
 sudo apt install -y docker.io docker-compose-v2
-git clone <URL-DEL-REPOSITORIO> ~/gps-route-viewer && cd ~/gps-route-viewer
+git clone https://github.com/IoTeacher/OpenVTSmaps.git ~/gps-route-viewer && cd ~/gps-route-viewer
 sudo PORT=80 docker compose up -d --build
 sudo docker ps
 ```

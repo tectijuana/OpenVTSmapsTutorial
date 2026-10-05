@@ -1,7 +1,7 @@
 # TODO — GPS Route Viewer
 
 ## Pendiente
-- [ ] Publicar el repositorio (GitHub/GitLab) y reemplazar `<URL-DEL-REPOSITORIO>` en `tutorial/`
+
 - [ ] Probar la Práctica 1 completa en una sesión real de AWS Academy Learner Lab
 - [ ] Probar la Práctica 2 en Windows (Docker Desktop + WSL 2)
 - [ ] Parser NMEA ($GPRMC) — propuesto como ejercicio D.1
@@ -13,6 +13,7 @@
 ## Hecho
 - [x] Crear vault de Obsidian y CLAUDE.md
 - [x] Inicializar git
+- [x] Publicar en https://github.com/IoTeacher/OpenVTSmaps
 - [x] Arquitectura (`docs/ARQUITECTURA.md`)
 - [x] App: importación CSV/GPX/KML/GeoJSON, mapa, reproducción, panel, validación
 - [x] Pruebas unitarias (`npm test`) y de navegador (`tests/browser.html`)
