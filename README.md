@@ -56,3 +56,7 @@ Las pruebas de los parsers GPX y KML se ejecutan en el navegador en `http://loca
 - [Tutorial para estudiantes: AWS Academy, Docker y ejercicios](tutorial/README.md)
 
 Mapa © colaboradores de [OpenStreetMap](https://www.openstreetmap.org/copyright) · [Leaflet](https://leafletjs.com) (BSD-2). La ruta demo usa coordenadas sintéticas.
+
+## Licencia
+
+[MIT](LICENSE) © 2026 René Solis R. · Leaflet se distribuye con su propia licencia BSD-2 (`src/assets/vendor/leaflet/LICENSE`).
