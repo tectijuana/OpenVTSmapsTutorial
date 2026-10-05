@@ -1,7 +1,7 @@
 # GPS Route Viewer
 
 [![Licencia: MIT](https://img.shields.io/github/license/IoTeacher/OpenVTSmaps?label=licencia)](LICENSE)
-[![Último commit](https://img.shields.io/github/last-commit/IoTeacher/OpenVTSmaps?label=último%20commit)](https://github.com/IoTeacher/OpenVTSmaps/commits/main)
+[![Último commit](https://img.shields.io/github/last-commit/IoTeacher/OpenVTSmaps?label=%C3%BAltimo%20commit)](https://github.com/IoTeacher/OpenVTSmaps/commits/main)
 [![JavaScript ES Modules](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=black)](src/main.js)
 [![Leaflet 1.9.4](https://img.shields.io/badge/Leaflet-1.9.4-199900?logo=leaflet&logoColor=white)](https://leafletjs.com)
 [![OpenStreetMap](https://img.shields.io/badge/mapa-OpenStreetMap-7EBC6F?logo=openstreetmap&logoColor=white)](https://www.openstreetmap.org/copyright)
