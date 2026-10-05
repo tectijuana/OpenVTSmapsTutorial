@@ -1,0 +1,21 @@
+services:
+  # Imagen con el sitio copiado dentro: igual a producción.
+  #   docker compose up -d --build        → http://localhost:8080
+  web:
+    build: .
+    image: gps-route-viewer
+    ports:
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
+
+  # Modo desarrollo: monta el código, los cambios se ven al recargar el navegador.
+  #   docker compose --profile dev up dev
+  dev:
+    image: nginx:stable-alpine
+    profiles: ["dev"]
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./src:/usr/share/nginx/html/src:ro
+      - ./tests:/usr/share/nginx/html/tests:ro

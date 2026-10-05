@@ -1,0 +1,9 @@
+.git
+.obsidian
+.claude
+dist
+docs
+tests
+tutorial
+scripts
+*.md

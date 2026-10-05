@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPS Route Viewer</title>
+  <meta name="description" content="Visualización y reproducción de trayectorias GPS (CSV, GPX, KML, GeoJSON) en el navegador.">
+  <link rel="icon" href="src/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="src/assets/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="src/assets/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <img src="src/assets/icons/favicon.svg" alt="" width="36" height="36">
+      <div>
+        <h1>GPS Route Viewer</h1>
+        <p>Visualización y reproducción de trayectorias GPS</p>
+      </div>
+    </div>
+    <span class="privacy-badge" title="Ningún dato sale de su equipo">🔒 Procesamiento local</span>
+  </header>
+
+  <main class="app-main">
+    <div id="fileProtocolWarning" class="msg msg-error" hidden>
+      <strong>Esta página se abrió como archivo (file://).</strong>
+      Los módulos JavaScript requieren un servidor HTTP. En la carpeta del proyecto ejecute
+      <code>python3 -m http.server 8080</code> y abra <code>http://localhost:8080</code>.
+    </div>
+
+    <section id="upload" class="upload">
+      <div id="dropZone" class="drop-zone" tabindex="0" aria-label="Zona para arrastrar archivos GPS">
+        <button id="selectBtn" type="button" class="btn btn-primary">Seleccionar archivo</button>
+        <span class="drop-or">o</span>
+        <p class="drop-text">Arrastra aquí <strong>CSV, GPX, KML o GeoJSON</strong></p>
+        <button id="demoBtn" type="button" class="btn btn-link">
+          Cargar ruta demo: TecNM Tijuana · Tomás Aquino → Otay
+        </button>
+        <input id="fileInput" type="file" accept=".csv,.txt,.gpx,.kml,.geojson,.json" hidden>
+      </div>
+      <p class="privacy-note">🔒 Los datos GPS se procesan localmente en su navegador.</p>
+    </section>
+
+    <div id="messages" class="messages" hidden></div>
+
+    <section id="workspace" class="workspace" hidden>
+      <div class="map-column">
+        <div id="mapWrap" class="map-wrap">
+          <div id="map" aria-label="Mapa de la trayectoria"></div>
+          <div class="map-toolbar" role="toolbar" aria-label="Controles del mapa">
+            <button type="button" id="zoomInBtn" title="Acercar" aria-label="Acercar">+</button>
+            <button type="button" id="zoomOutBtn" title="Alejar" aria-label="Alejar">−</button>
+            <button type="button" id="fitBtn" title="Centrar ruta" aria-label="Centrar ruta">⌖</button>
+            <button type="button" id="fullscreenBtn" title="Pantalla completa" aria-label="Pantalla completa">⛶</button>
+          </div>
+        </div>
+
+        <div class="player" role="group" aria-label="Reproducción">
+          <div class="player-buttons">
+            <button type="button" id="playBtn" class="btn btn-primary" title="Reproducir (barra espaciadora)">▶ Reproducir</button>
+            <button type="button" id="pauseBtn" class="btn" title="Pausar">⏸ Pausar</button>
+            <button type="button" id="resetBtn" class="btn" title="Reiniciar">⏹ Reiniciar</button>
+            <label class="speed-select">
+              Velocidad
+              <select id="rateSelect">
+                <option value="0.5">0.5x</option>
+                <option value="1">1x</option>
+                <option value="2">2x</option>
+                <option value="5">5x</option>
+                <option value="10" selected>10x</option>
+                <option value="30">30x</option>
+                <option value="60">60x</option>
+              </select>
+            </label>
+          </div>
+          <div class="timeline">
+            <span id="timeCurrent" class="time-label">00:00</span>
+            <input id="timeSlider" type="range" min="0" max="1000" step="1" value="0" aria-label="Posición en el recorrido">
+            <span id="timeTotal" class="time-label">00:00</span>
+          </div>
+          <p id="simulatedNote" class="hint" hidden>Sin timestamps: la reproducción simula intervalos uniformes de 10 s entre puntos.</p>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <section class="card">
+          <h2>Resumen de la ruta</h2>
+          <label id="vehicleSelectWrap" class="field" hidden>
+            Vehículo
+            <select id="vehicleSelect"></select>
+          </label>
+          <div id="stats" class="stats"></div>
+        </section>
+
+        <section class="card">
+          <h2>Telemetría en reproducción</h2>
+          <div id="live"></div>
+        </section>
+
+        <section class="card">
+          <h2>Capas</h2>
+          <label class="toggle"><input type="checkbox" id="togglePoints" checked> Mostrar puntos</label>
+          <label class="toggle"><input type="checkbox" id="toggleRoute" checked> Mostrar trayectoria</label>
+          <label class="toggle"><input type="checkbox" id="toggleLabels"> Mostrar etiquetas</label>
+          <label class="toggle"><input type="checkbox" id="toggleFollow" checked> Seguir vehículo</label>
+          <button type="button" id="resetBtn2" class="btn btn-block">⏹ Reiniciar reproducción</button>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    TecNM · Instituto Tecnológico de Tijuana — Prácticas de GPS, IoT y telemetría ·
+    Mapa: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a> ·
+    <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>
+  </footer>
+
+  <script>
+    if (location.protocol === 'file:') document.getElementById('fileProtocolWarning').hidden = false;
+  </script>
+  <script src="src/assets/vendor/leaflet/leaflet.js"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

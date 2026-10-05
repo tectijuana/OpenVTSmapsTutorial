@@ -1,0 +1,12 @@
+{
+  "name": "gps-route-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Visualización y reproducción de trayectorias GPS en el navegador (TecNM Tijuana).",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node --test tests/*.test.js",
+    "package": "sh scripts/package.sh"
+  }
+}

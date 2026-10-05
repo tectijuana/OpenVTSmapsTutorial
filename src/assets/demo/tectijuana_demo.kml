@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+  <Document>
+    <name>TecNM Tijuana: Tomás Aquino → Otay (sintético)</name>
+    <Placemark>
+      <name>AUTO-DEMO-01</name>
+      <gx:Track>
+        <when>2026-10-05T01:00:00Z</when>
+        <when>2026-10-05T01:00:20Z</when>
+        <when>2026-10-05T01:00:40Z</when>
+        <when>2026-10-05T01:01:00Z</when>
+        <when>2026-10-05T01:01:20Z</when>
+        <when>2026-10-05T01:01:40Z</when>
+        <when>2026-10-05T01:02:00Z</when>
+        <when>2026-10-05T01:02:20Z</when>
+        <when>2026-10-05T01:02:40Z</when>
+        <when>2026-10-05T01:03:00Z</when>
+        <when>2026-10-05T01:03:20Z</when>
+        <when>2026-10-05T01:03:40Z</when>
+        <when>2026-10-05T01:04:00Z</when>
+        <when>2026-10-05T01:04:20Z</when>
+        <when>2026-10-05T01:04:40Z</when>
+        <when>2026-10-05T01:05:00Z</when>
+        <gx:coord>-116.988190 32.528790 0</gx:coord>
+        <gx:coord>-116.983800 32.529050 0</gx:coord>
+        <gx:coord>-116.979300 32.529420 0</gx:coord>
+        <gx:coord>-116.974900 32.529850 0</gx:coord>
+        <gx:coord>-116.970500 32.530300 0</gx:coord>
+        <gx:coord>-116.966100 32.530750 0</gx:coord>
+        <gx:coord>-116.961700 32.531200 0</gx:coord>
+        <gx:coord>-116.957300 32.531680 0</gx:coord>
+        <gx:coord>-116.952900 32.532150 0</gx:coord>
+        <gx:coord>-116.948600 32.532650 0</gx:coord>
+        <gx:coord>-116.944300 32.533100 0</gx:coord>
+        <gx:coord>-116.940100 32.533600 0</gx:coord>
+        <gx:coord>-116.936000 32.534050 0</gx:coord>
+        <gx:coord>-116.932400 32.534480 0</gx:coord>
+        <gx:coord>-116.929700 32.534850 0</gx:coord>
+        <gx:coord>-116.927680 32.535290 0</gx:coord>
+      </gx:Track>
+    </Placemark>
+  </Document>
+</kml>

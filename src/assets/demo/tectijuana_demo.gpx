@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPS Route Viewer (TecNM Tijuana)" xmlns="http://www.topografix.com/GPX/1/1"
+     xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v2">
+  <metadata><name>TecNM Tijuana: Tomás Aquino → Otay (sintético)</name></metadata>
+  <trk>
+    <name>AUTO-DEMO-01</name>
+    <trkseg>
+      <trkpt lat="32.528790" lon="-116.988190"><time>2026-10-05T01:00:00Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>0.000</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.529050" lon="-116.983800"><time>2026-10-05T01:00:20Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>5.000</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.529420" lon="-116.979300"><time>2026-10-05T01:00:40Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>8.889</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.529850" lon="-116.974900"><time>2026-10-05T01:01:00Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>10.556</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.530300" lon="-116.970500"><time>2026-10-05T01:01:20Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>11.667</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.530750" lon="-116.966100"><time>2026-10-05T01:01:40Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>12.500</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.531200" lon="-116.961700"><time>2026-10-05T01:02:00Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>13.056</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.531680" lon="-116.957300"><time>2026-10-05T01:02:20Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>12.222</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.532150" lon="-116.952900"><time>2026-10-05T01:02:40Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>11.111</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.532650" lon="-116.948600"><time>2026-10-05T01:03:00Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>10.556</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.533100" lon="-116.944300"><time>2026-10-05T01:03:20Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>10.000</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.533600" lon="-116.940100"><time>2026-10-05T01:03:40Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>9.167</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.534050" lon="-116.936000"><time>2026-10-05T01:04:00Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>7.778</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.534480" lon="-116.932400"><time>2026-10-05T01:04:20Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>6.111</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.534850" lon="-116.929700"><time>2026-10-05T01:04:40Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>3.333</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="32.535290" lon="-116.927680"><time>2026-10-05T01:05:00Z</time><extensions><gpxtpx:TrackPointExtension><gpxtpx:speed>0.000</gpxtpx:speed></gpxtpx:TrackPointExtension></extensions></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

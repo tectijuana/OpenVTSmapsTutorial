@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pruebas en navegador · GPX/KML</title>
+  <style>body{font-family:system-ui;margin:2rem} .ok{color:#16a34a} .fail{color:#dc2626} pre{background:#f1f5f9;padding:1rem}</style>
+</head>
+<body>
+  <h1>Pruebas en navegador (parsers GPX y KML)</h1>
+  <p>Estos parsers usan <code>DOMParser</code>, que no existe en Node.js. Abra esta página con el servidor local:
+    <code>http://localhost:8080/tests/browser.html</code></p>
+  <ul id="results"></ul>
+  <pre id="summary"></pre>
+  <script type="module">
+    import { parseGpsFile } from '../src/parsers/index.js';
+    import { buildTracks } from '../src/utils/trackBuilder.js';
+
+    const results = document.getElementById('results');
+    let pass = 0, fail = 0;
+    const check = (name, cond, detail = '') => {
+      const li = document.createElement('li');
+      li.className = cond ? 'ok' : 'fail';
+      li.textContent = `${cond ? '✔' : '✖'} ${name} ${detail}`;
+      results.append(li);
+      cond ? pass++ : fail++;
+    };
+    const load = async (f) => {
+      const text = await (await fetch(`../src/assets/demo/${f}`)).text();
+      const parsed = parseGpsFile(f, text);
+      return { parsed, ...buildTracks(parsed.records, { fileName: f, format: parsed.format }) };
+    };
+
+    for (const f of ['tectijuana_demo.gpx', 'tectijuana_demo.kml', 'tectijuana_demo.geojson', 'tectijuana_demo.csv']) {
+      try {
+        const { parsed, tracks } = await load(f);
+        const t = tracks[0];
+        check(`${f}: formato ${parsed.format}`, true);
+        check(`${f}: 16 puntos`, t.points.length === 16, `(${t.points.length})`);
+        check(`${f}: vehículo AUTO-DEMO-01`, t.vehicleId === 'AUTO-DEMO-01', `(${t.vehicleId})`);
+        check(`${f}: duración 5 min`, t.stats.durationMs === 300000, `(${t.stats.durationMs})`);
+        check(`${f}: distancia ≈ 5.7 km`, Math.abs(t.stats.distanceKm - 5.7) < 0.3, `(${t.stats.distanceKm.toFixed(3)})`);
+        if (f.endsWith('.gpx')) check(`${f}: velocidad máx 47 km/h (desde m/s)`, Math.round(t.stats.maxSpeedKmh) === 47, `(${t.stats.maxSpeedKmh})`);
+      } catch (e) {
+        check(`${f}: ${e.message}`, false);
+      }
+    }
+    try {
+      parseGpsFile('roto.gpx', '<gpx><trk><trkseg><trkpt lat="1"');
+      check('GPX dañado lanza error', false);
+    } catch (e) {
+      check('GPX dañado lanza error amigable', /XML válido/.test(e.message), `(${e.message})`);
+    }
+    const summary = `pass ${pass} / fail ${fail}`;
+    document.getElementById('summary').textContent = summary;
+    document.title = summary;
+  </script>
+</body>
+</html>
