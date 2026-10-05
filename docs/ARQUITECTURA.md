@@ -1,6 +1,6 @@
 # GPS Route Viewer — Arquitectura
 
-Herramienta web para importar trayectorias GPS (CSV, GPX, KML, GeoJSON), visualizarlas sobre OpenStreetMap y reproducir el recorrido de un vehículo de forma animada. Inspirada funcionalmente en *OpenVTS — Display Map Data Points* y *Dawarich — Route Video Maker*.
+Herramienta web para importar trayectorias GPS (CSV, GPX, KML, GeoJSON, NMEA 0183), visualizarlas sobre OpenStreetMap y reproducir el recorrido de un vehículo de forma animada. Inspirada funcionalmente en *OpenVTS — Display Map Data Points* y *Dawarich — Route Video Maker*.
 
 ## 1. Arquitectura recomendada
 

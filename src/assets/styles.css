@@ -248,6 +248,18 @@ select {
 .vehicle-icon { filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.45)); }
 .vehicle-rot { width: 40px; height: 40px; }
 
+.speed-legend {
+  background: rgb(255 255 255 / 0.92);
+  color: #0f172a;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
+}
+.speed-legend strong { display: block; margin-bottom: 0.15rem; }
+.speed-legend i { display: inline-block; width: 18px; height: 5px; border-radius: 3px; margin-right: 0.4rem; vertical-align: middle; }
+
 .point-popup h4 { margin: 0 0 0.4rem; font-size: 0.9rem; }
 .point-popup dl { display: grid; grid-template-columns: auto 1fr; gap: 0.15rem 0.75rem; margin: 0; font-size: 0.82rem; }
 .point-popup dt { color: #64748b; }

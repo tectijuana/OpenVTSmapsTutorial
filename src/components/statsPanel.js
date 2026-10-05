@@ -2,7 +2,7 @@
 import { escapeHtml } from '../utils/escapeHtml.js';
 import { formatDuration, formatKm, formatSpeed } from '../utils/format.js';
 
-const FORMAT_LABEL = { csv: 'CSV', gpx: 'GPX', kml: 'KML', geojson: 'GeoJSON' };
+const FORMAT_LABEL = { csv: 'CSV', gpx: 'GPX', kml: 'KML', geojson: 'GeoJSON', nmea: 'NMEA' };
 
 export function renderStats(el, track) {
   const s = track.stats;

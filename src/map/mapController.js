@@ -1,6 +1,7 @@
 // Único módulo que conoce Leaflet (global L, cargado desde src/assets/vendor/leaflet).
 import { bearingDeg } from '../utils/haversine.js';
 import { pointPopupHtml } from '../components/pointPopup.js';
+import { SPEED_BANDS, UNKNOWN_SPEED_COLOR, speedColor, segmentSpeed } from '../utils/speedColors.js';
 
 const COLORS = { route: '#2563eb', point: '#1d4ed8', start: '#16a34a', end: '#dc2626', selected: '#f59e0b' };
 const MAX_ARROWS = 60;
@@ -47,6 +48,9 @@ export class MapController {
     this.pointMarkers = [];
     this.vehicleMarker = null;
     this.bounds = null;
+    this.track = null;
+    this.colorBySpeed = false;
+    this.legend = this._createLegend();
   }
 
   /** Dibuja la trayectoria completa. onPointClick recibe el GpsPoint. */
@@ -56,7 +60,8 @@ export class MapController {
     const pts = track.points;
     const latlngs = pts.map((p) => [p.lat, p.lon]);
 
-    L.polyline(latlngs, { color: COLORS.route, weight: 5, opacity: 0.8, lineJoin: 'round' }).addTo(this.layers.route);
+    this.track = track;
+    this._drawRoute();
 
     pts.forEach((p) => {
       const m = L.circleMarker([p.lat, p.lon], {
@@ -140,6 +145,42 @@ export class MapController {
 
   zoomOut() {
     this.map.zoomOut();
+  }
+
+  /** Dibuja la trayectoria en un color o por segmentos coloreados según la velocidad. */
+  _drawRoute() {
+    this.layers.route.clearLayers();
+    const pts = this.track?.points ?? [];
+    const style = { weight: 5, opacity: 0.85, lineJoin: 'round', lineCap: 'round' };
+    if (!this.colorBySpeed) {
+      L.polyline(pts.map((p) => [p.lat, p.lon]), { ...style, color: COLORS.route }).addTo(this.layers.route);
+      return;
+    }
+    for (let i = 0; i < pts.length - 1; i++) {
+      const a = pts[i];
+      const b = pts[i + 1];
+      L.polyline([[a.lat, a.lon], [b.lat, b.lon]], { ...style, color: speedColor(segmentSpeed(a, b)) }).addTo(this.layers.route);
+    }
+  }
+
+  setColorBySpeed(enabled) {
+    this.colorBySpeed = enabled;
+    if (enabled) this.legend.addTo(this.map);
+    else this.legend.remove();
+    if (this.track) this._drawRoute();
+  }
+
+  _createLegend() {
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div', 'speed-legend');
+      const rows = [...SPEED_BANDS, { color: UNKNOWN_SPEED_COLOR, label: 'sin dato' }]
+        .map((b) => `<div><i style="background:${b.color}"></i>${b.label}</div>`)
+        .join('');
+      div.innerHTML = `<strong>Velocidad</strong>${rows}`;
+      return div;
+    };
+    return legend;
   }
 
   /** layer: 'points' | 'route' | 'labels' (las flechas acompañan a la trayectoria). */

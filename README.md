@@ -18,7 +18,8 @@
 
 Visualización y reproducción de trayectorias GPS en el navegador. Es un proyecto didáctico del TecNM · Instituto Tecnológico de Tijuana para prácticas de GPS, IoT, telemetría, programación, sistemas distribuidos y análisis de datos de vehículos.
 
-- Importa **CSV, GPX, KML y GeoJSON** (arrastrar y soltar o selector de archivos).
+- Importa **CSV, GPX, KML, GeoJSON y NMEA 0183** (arrastrar y soltar o selector de archivos).
+- Colorea la ruta por velocidad y exporta la trayectoria validada a GeoJSON.
 - Ruta (polilínea), puntos, flechas de dirección, inicio y destino, y popup por punto.
 - Reproducción animada con velocidad de 0.5x a 60x, barra de tiempo y panel de telemetría.
 - Distancia por **Haversine**, duración, velocidad máxima y promedio, y selector para archivos con varios vehículos.
@@ -33,6 +34,7 @@ Visualización y reproducción de trayectorias GPS en el navegador. Es un proyec
 | **GPX 1.1** (y 1.0) | TopoGrafix | `src/parsers/gpxParser.js`: `trkpt`, `rtept` y `wpt`; `<speed>` en m/s |
 | **KML 2.2** (OGC 07-147r2) | OGC | `src/parsers/kmlParser.js`: `Point`, `LineString`, `ExtendedData` y la extensión `gx:Track` de Google |
 | **GeoJSON** (RFC 7946) | IETF | `src/parsers/geojsonParser.js`: orden `[longitud, latitud, altitud]` |
+| **NMEA 0183** | NMEA | `src/parsers/nmeaParser.js`: sentencias `$--RMC` (posición, fecha, nudos) y `$--GGA` (altitud), con checksum |
 | **CSV** (RFC 4180) | IETF | `src/parsers/csvParser.js`: comillas dobles y campos con delimitador |
 | **ISO 8601** | ISO | `src/utils/timestamps.js`: fecha y hora con o sin zona horaria |
 | **Web Mercator** (EPSG:3857) | IOGP | Proyección de las teselas del mapa base (Leaflet + OpenStreetMap) |
