@@ -9,6 +9,21 @@ Visualización y reproducción de trayectorias GPS en el navegador. Es un proyec
 - Validación con mensajes amigables: archivos vacíos, coordenadas inválidas o fuera de rango, timestamps, duplicados y desorden.
 - **Los datos GPS se procesan localmente en el navegador**, sin backend.
 
+## Estándares internacionales
+
+| Estándar | Organismo | Uso en el proyecto |
+|---|---|---|
+| **WGS 84** (EPSG:4326) | NGA / IOGP | Sistema de referencia de todas las coordenadas: latitud de −90 a 90 y longitud de −180 a 180 |
+| **GPX 1.1** (y 1.0) | TopoGrafix | `src/parsers/gpxParser.js`: `trkpt`, `rtept` y `wpt`; `<speed>` en m/s |
+| **KML 2.2** (OGC 07-147r2) | OGC | `src/parsers/kmlParser.js`: `Point`, `LineString`, `ExtendedData` y la extensión `gx:Track` de Google |
+| **GeoJSON** (RFC 7946) | IETF | `src/parsers/geojsonParser.js`: orden `[longitud, latitud, altitud]` |
+| **CSV** (RFC 4180) | IETF | `src/parsers/csvParser.js`: comillas dobles y campos con delimitador |
+| **ISO 8601** | ISO | `src/utils/timestamps.js`: fecha y hora con o sin zona horaria |
+| **Web Mercator** (EPSG:3857) | IOGP | Proyección de las teselas del mapa base (Leaflet + OpenStreetMap) |
+| **ODbL 1.0** | Open Data Commons | Licencia de los datos de OpenStreetMap; requiere atribución |
+
+La distancia se calcula con la fórmula de **Haversine** sobre una esfera con el radio medio terrestre de la IUGG (6371.0088 km).
+
 ## Ejecutar
 
 ```bash
